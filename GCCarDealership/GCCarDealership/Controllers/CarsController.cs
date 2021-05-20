@@ -21,21 +21,15 @@ namespace GCCarDealership.Controllers
             _context = context;
         }
 
-        // GET: api/Cars/search?q=Silverado 1500
-        [HttpGet("year")]
-        public async Task<ActionResult<IEnumerable<Cars>>> GetCarByYear(int year)
+        // GET: api/Cars
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Cars>>> GetCar()
         {
-            var car = await _context.Cars.Where(x => x.Year == year).ToListAsync();
-
-            if (car == null)
-            {
-                return NotFound();
-            }
-
-            return car;
+            return await _context.Cars.ToListAsync();
         }
 
-        // GET: api/Cars/search?q=
+        // GET: Cars by Make, Model, or Color
+        // api/Cars/search?q=
         [HttpGet("search")]
         public async Task<ActionResult<Cars>> GetCar(string q)
         {
@@ -49,12 +43,23 @@ namespace GCCarDealership.Controllers
             return car;
         }
 
-        // GET: api/Cars
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cars>>> GetCar()
+        // GET: Cars by Year
+        //api/Cars/search/year?q=
+        [HttpGet("search/year")]
+        public async Task<ActionResult<IEnumerable<Cars>>> GetCarByYear(int year)
         {
-            return await _context.Cars.ToListAsync();
+            var car = await _context.Cars.Where(x => x.Year == year).ToListAsync();
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            return car;
         }
+
+        
+
+        
 
         // GET: api/Cars/5
         [HttpGet("{id}")]

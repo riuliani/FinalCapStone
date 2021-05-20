@@ -43,6 +43,12 @@ namespace GCDealershipWebApp.Controllers
             return View();
         }
 
+        public async Task<IActionResult> SearchDealership(DealerSearch viewModel)
+        {
+            var results = await _service.SearchDealer(viewModel);
+            return View(results);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

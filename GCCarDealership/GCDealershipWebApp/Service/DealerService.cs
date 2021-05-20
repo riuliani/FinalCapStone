@@ -1,4 +1,5 @@
-﻿using GCDealershipWebApp.Service.Models;
+﻿using GCDealershipWebApp.Models;
+using GCDealershipWebApp.Service.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -19,6 +20,11 @@ namespace GCDealershipWebApp.Service
         public async Task<IEnumerable<DealershipModelData>> GetDataAsync()
         {
             return await _client.GetFromJsonAsync<IEnumerable<DealershipModelData>>("");
+        }
+
+        public async Task<IEnumerable<DealerSearch>> SearchDealer(DealerSearch viewModel)
+        {
+            return await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>($"search?q={viewModel}");
         }
     }
 }
