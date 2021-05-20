@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GCCarDealership", "GCCarDealership\GCCarDealership.csproj", "{275DE979-4E5C-4249-BAE0-7B8734E6DDEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCDealershipWebApp", "GCDealershipWebApp\GCDealershipWebApp.csproj", "{3B6BC83F-AF1A-4207-BEF2-3584CD38EDE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{275DE979-4E5C-4249-BAE0-7B8734E6DDEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{275DE979-4E5C-4249-BAE0-7B8734E6DDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{275DE979-4E5C-4249-BAE0-7B8734E6DDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{275DE979-4E5C-4249-BAE0-7B8734E6DDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B6BC83F-AF1A-4207-BEF2-3584CD38EDE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6BC83F-AF1A-4207-BEF2-3584CD38EDE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6BC83F-AF1A-4207-BEF2-3584CD38EDE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6BC83F-AF1A-4207-BEF2-3584CD38EDE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3733183A-CAF9-4C1F-88E2-B752CA0AF442}
+	EndGlobalSection
+EndGlobal
