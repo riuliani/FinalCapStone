@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace GCDealershipWebApp
@@ -27,7 +28,7 @@ namespace GCDealershipWebApp
             services.AddControllersWithViews();
             services.AddHttpClient<IDealerService, DealerService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44336/api/Cars");
+                client.BaseAddress = new Uri("https://localhost:44336/api/Cars/");
             });
         }
 

@@ -7,8 +7,7 @@ namespace GCDealershipWebApp.Service
 {
     public interface IDealerService
     {
-        Task<IEnumerable<DealershipModelData>> GetDataAsync();
-
+        Task<IEnumerable<DealershipModelData>> GetDealerData();
         Task<IEnumerable<DealerSearch>> SearchDealer(DealerSearch viewModel);
     }
 }

@@ -34,7 +34,7 @@ namespace GCDealershipWebApp.Controllers
         }
         public async Task<IActionResult> Result()
         {
-            var result = await _service.GetDataAsync();
+            var result = await _service.GetDealerData();
             return View(result);
         }
 

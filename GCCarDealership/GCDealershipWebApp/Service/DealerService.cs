@@ -17,14 +17,16 @@ namespace GCDealershipWebApp.Service
             _client = client;
         }
 
-        public async Task<IEnumerable<DealershipModelData>> GetDataAsync()
+        public async Task<IEnumerable<DealershipModelData>> GetDealerData()
         {
             return await _client.GetFromJsonAsync<IEnumerable<DealershipModelData>>("");
         }
 
         public async Task<IEnumerable<DealerSearch>> SearchDealer(DealerSearch viewModel)
         {
-            return await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>($"search?q={viewModel}");
+            return  await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>($"search?make={viewModel.Make}&model={viewModel.Model}&year={viewModel.Year}" +
+                $"&color={viewModel.Color}");
+            
         }
     }
 }

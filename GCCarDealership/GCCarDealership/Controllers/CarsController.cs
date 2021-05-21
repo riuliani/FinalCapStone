@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GCCarDealership.Data;
 using GCCarDealership.Model;
+using GCCarDealership.Models;
 
 namespace GCCarDealership.Controllers
 {
@@ -31,9 +32,10 @@ namespace GCCarDealership.Controllers
         // GET: Cars by Make, Model, or Color
         // api/Cars/search?q=
         [HttpGet("search")]
-        public async Task<ActionResult<Cars>> GetCar(string q)
+        public async Task<ActionResult<Cars>> GetCar([FromQuery]DealerModel viewModel)
         {
-            var car = await _context.Cars.FirstOrDefaultAsync(x => x.Make == q || x.Model == q || x.Color == q);
+            var car = await _context.Cars.FirstOrDefaultAsync(x => x.Make == viewModel.Make 
+            || x.Model == viewModel.Model || x.Color == viewModel.Color);
 
             if (car == null)
             {
@@ -46,9 +48,9 @@ namespace GCCarDealership.Controllers
         // GET: Cars by Year
         //api/Cars/search/year?q=
         [HttpGet("search/year")]
-        public async Task<ActionResult<IEnumerable<Cars>>> GetCarByYear(int year)
+        public async Task<ActionResult<IEnumerable<Cars>>> GetCarByYear(DealerModel viewModel)
         {
-            var car = await _context.Cars.Where(x => x.Year == year).ToListAsync();
+            var car = await _context.Cars.Where(x => x.Year == viewModel.Year).ToListAsync();
             if (car == null)
             {
                 return NotFound();
