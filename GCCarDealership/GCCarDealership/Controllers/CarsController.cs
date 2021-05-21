@@ -39,7 +39,7 @@ namespace GCCarDealership.Controllers
 
             if (car == null)
             {
-                return NotFound();
+                return car;
             }
 
             return car;
