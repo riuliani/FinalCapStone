@@ -27,7 +27,7 @@ namespace GCDealershipWebApp.Service
             //viewModel = null;
             string queryString = viewModel?.GetQueryString();
 
-            return await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>(queryString);
+            return await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>($"search?{queryString}");
 
             //return  await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>($"search?make={viewModel.Make}&model={viewModel.Model}&year={viewModel.Year}" +
             //    $"&color={viewModel.Color}");            

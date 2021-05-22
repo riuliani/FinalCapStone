@@ -30,17 +30,14 @@ namespace GCCarDealership.Controllers
         }
 
         // GET: Cars by Make, Model, or Color
-        // api/Cars/search?q=
+        // api/Cars/search=
         [HttpGet("search")]
-        public async Task<ActionResult<Cars>> GetCar([FromQuery]DealerModel viewModel)
+        public async Task<ActionResult<IEnumerable<Cars>>> GetCar([FromQuery]DealerModel viewModel)
         {
-            var car = await _context.Cars.FirstOrDefaultAsync(x => x.Make == viewModel.Make 
-            || x.Model == viewModel.Model || x.Color == viewModel.Color);
+            var car = await _context.Cars.Where(x => x.Make == viewModel.Make 
+            || x.Model == viewModel.Model || x.Color == viewModel.Color).ToListAsync();
 
-            if (car == null)
-            {
-                return car;
-            }
+            
 
             return car;
         }
@@ -59,9 +56,9 @@ namespace GCCarDealership.Controllers
             return car;
         }
 
-        
 
-        
+
+
 
         // GET: api/Cars/5
         [HttpGet("{id}")]
