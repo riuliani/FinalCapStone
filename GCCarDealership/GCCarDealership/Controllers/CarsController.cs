@@ -35,9 +35,7 @@ namespace GCCarDealership.Controllers
         public async Task<ActionResult<IEnumerable<Cars>>> GetCar([FromQuery]DealerModel viewModel)
         {
             var car = await _context.Cars.Where(x => x.Make == viewModel.Make 
-            || x.Model == viewModel.Model || x.Color == viewModel.Color).ToListAsync();
-
-            
+            || x.Model == viewModel.Model || x.Color == viewModel.Color).ToListAsync();          
 
             return car;
         }

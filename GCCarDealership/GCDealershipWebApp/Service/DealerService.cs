@@ -24,13 +24,9 @@ namespace GCDealershipWebApp.Service
 
         public async Task<IEnumerable<DealerSearch>> SearchDealer(DealerSearch viewModel)
         {
-            //viewModel = null;
             string queryString = viewModel?.GetQueryString();
 
             return await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>($"search?{queryString}");
-
-            //return  await _client.GetFromJsonAsync<IEnumerable<DealerSearch>>($"search?make={viewModel.Make}&model={viewModel.Model}&year={viewModel.Year}" +
-            //    $"&color={viewModel.Color}");            
         }
     }
 }
