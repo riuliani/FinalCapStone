@@ -35,29 +35,10 @@ namespace GCCarDealership.Controllers
         public async Task<ActionResult<IEnumerable<Cars>>> GetCar([FromQuery]DealerModel viewModel)
         {
             var car = await _context.Cars.Where(x => x.Make == viewModel.Make 
-            || x.Model == viewModel.Model || x.Color == viewModel.Color).ToListAsync();          
+            ||x.Year == viewModel.Year || x.Model == viewModel.Model || x.Color == viewModel.Color).ToListAsync();          
 
             return car;
         }
-
-        // GET: Cars by Year
-        //api/Cars/search/year?q=
-        [HttpGet("search/year")]
-        public async Task<ActionResult<IEnumerable<Cars>>> GetCarByYear(DealerModel viewModel)
-        {
-            var car = await _context.Cars.Where(x => x.Year == viewModel.Year).ToListAsync();
-            if (car == null)
-            {
-                return NotFound();
-            }
-
-            return car;
-        }
-
-
-
-
-
         // GET: api/Cars/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cars>> GetCar(int id)
